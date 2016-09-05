@@ -4,10 +4,10 @@ include_once("config.php");
 
 //start session for this user & display 
 session_start();
-//echo "Logged in user : " . $_SESSION["logged_in_user"] ."<p><p>";
 
-//fetching data in descending order (lastest entry first)
-$result = mysqli_query($conn, "SELECT * FROM tbl_received ORDER BY received_date DESC lIMIT 50");
+//fetching data in descending order (lastest entry first). Use pdo instead of mysqli
+$query_tbl_received="SELECT * FROM tbl_received ORDER BY received_date DESC lIMIT 50";
+$result = $conn->query($query_tbl_received);
 
 ?>
 
@@ -48,7 +48,6 @@ $result = mysqli_query($conn, "SELECT * FROM tbl_received ORDER BY received_date
 		<td><h1>Product Name</h1></td>
 		<td><h1>Serial No.</h1></td>
 		<td><h1>Product Model</h1></td>
-		<!--<td><h1>Unit</h1></td>-->
 		<td><h1>Qty</h1></td>
 		<td><h1>Received From</h1></td>
 		<td><h1>Received Date</h1></td>
@@ -59,17 +58,13 @@ $result = mysqli_query($conn, "SELECT * FROM tbl_received ORDER BY received_date
 
 	<?php 
 
-		//echo "run php";
-
-		if ($result->num_rows > 0) {
-			//echo "have result";
-
-			while($row = $result->fetch_assoc()) {
+		if ($row = $result->fetch(PDO::FETCH_ASSOC)) 
+		{
+			while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 				echo "<tr bgcolor='#CCCCCC' border=0>";
 	        	echo "<td><h2>".$row['product_name']."</h2></td>";
 	        	echo "<td><h2>".$row['serial_no']."</h2></td>";
 	        	echo "<td><h2>".$row['product_desc']."</h2></td>";
-	        	//echo "<td><h2>".$row['unit']."</h2></td>";
 	        	echo "<td><h2>".$row['quantity']."</h2></td>";
 	        	echo "<td><h2>".$row['received_from']."</h2></td>";
 	        	echo "<td><h2>".$row['received_date']."</h2></td>";
@@ -79,8 +74,12 @@ $result = mysqli_query($conn, "SELECT * FROM tbl_received ORDER BY received_date
 	    	}
 		}	
 
-		$conn->close();
+		//close used resources
+		$result->closeCursor();
+		$db = null;
+
 	?>
+
 	</table>
 </body>
 </html>

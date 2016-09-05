@@ -26,21 +26,26 @@ $insert_query = "INSERT INTO `tbl_received`
 	(`product_name`, `serial_no`, `product_desc`, `quantity`, `received_from`, `received_date`, `remarks`, `item_owner`, `last_modified_by`)
 	VALUES ('$product_name', '$serial_no', '$product_desc', '$quantity', '$received_from', '$received_date', '$remarks', '$item_owner', '$user')";
 
-//run insert query
-$result = mysqli_query($conn, $insert_query);
 
-//point back to function page
-	
-if ($result) {
-	echo "<p>successfully added to database!";
+try {
+     $conn->query($insert_query);
+     echo "<p>successfully added to database!";
 	//echo '</html></body><p><p><a href="add_received_item.php">Add Next Item</a><br/><br/></body></html>';
 	//echo '</html></body><p><p><a href="function.php">Back</a><br/><br/></body></html>';
     echo "<p>$received_date";
-} else {
-	echo "<p>something was wrong!!";
-	//echo '</html></body><p><p><a href="function.php">Back</a><br/><br/></body></html>';
+
+} catch (PDOException $e) {
+    if ($e->getCode() == 1062) {
+        // Take some action if there is a key constraint violation, i.e. duplicate name
+    } else {
+        throw $e;
+    }
+    echo "<p>something was wrong!!";
 }
+
 ?>
+
+
 
 
 <html>

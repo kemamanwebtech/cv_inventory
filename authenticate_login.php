@@ -11,11 +11,12 @@ $password = $_POST["password"];
 $search_query = "SELECT * FROM tbl_user where username='" . strval($username) . "' and password='" . strval($password). "'";
 
 //run search query
-$result = mysqli_query($conn, $search_query);
+//$result = mysqli_query($conn, $search_query); //replace msqli with pdo
+$result = $conn->query($search_query);
 
 //if login is valid, go to next page
-if ($result->num_rows > 0) {
-
+if ($row = $result->fetch(PDO::FETCH_ASSOC)) //replace msqli with pdo
+{
 	//start session for this user
 	session_start();
 	$_SESSION["logged_in_user"] = $username;
@@ -30,6 +31,5 @@ if ($result->num_rows > 0) {
 	//redirect to main page
 	echo '<script type="text/javascript">';
     echo 'window.location = "index.html"';
-    echo '</script>';
-}
+    echo '</script>';}
 ?>

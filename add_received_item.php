@@ -4,10 +4,13 @@
 //include the database connection file
 include_once("config.php");
 
-//fetching data in descending order (lastest entry first)
-$result_product_name = mysqli_query($conn, "SELECT distinct product_name FROM tbl_product");
-$result_user = mysqli_query($conn, "SELECT distinct name FROM tbl_user");
-$result_item_owner= mysqli_query($conn, "SELECT distinct owner FROM tbl_asset");
+//queries
+$query_product_name = "SELECT distinct product_name FROM tbl_asset";
+$query_user = "SELECT distinct name FROM tbl_user";
+
+//run queries to get results
+$result_product_name = $conn->query($query_product_name);
+$result_user = $conn->query($query_user);
 
 ?>
 
@@ -35,7 +38,6 @@ $result_item_owner= mysqli_query($conn, "SELECT distinct owner FROM tbl_asset");
 			<button>Back</button>
 		</form>
 	</fieldset>
-	
 
 	<form class="add_form" method="post" action="save_received_item.php">
 		<div class="box_container">
@@ -43,8 +45,10 @@ $result_item_owner= mysqli_query($conn, "SELECT distinct owner FROM tbl_asset");
 				<p>Product Name: 
 					<select id="product_name" name="product_name">  
 					<?php
-					 if ($result_product_name->num_rows > 0) {
-						while($row = $result_product_name->fetch_assoc()) {
+					if ($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) 
+					{
+						while($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) 
+						{
 							echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
 						}
 					}   
@@ -59,9 +63,11 @@ $result_item_owner= mysqli_query($conn, "SELECT distinct owner FROM tbl_asset");
 				<p>Item Owner : 
 				<select id="item_owner" name="item_owner">  
 				<?php
-					 if ($result_user->num_rows > 0) {
-						while($row = $result_user->fetch_assoc()) {
-							echo '<option value="' . $row['owner']. '">' . $row['owner']. '</option>';
+					if ($row = $result_user->fetch(PDO::FETCH_ASSOC)) 
+					{
+						while($row = $result_user->fetch(PDO::FETCH_ASSOC)) 
+						{
+							echo '<option value="' . $row['name']. '">' . $row['name']. '</option>';
 						}
 					}   
 				?>
