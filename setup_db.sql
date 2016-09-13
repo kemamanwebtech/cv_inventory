@@ -1,11 +1,10 @@
 -- Run this file in MySQL with root to create database and tables
 
 -- create database and use it
-<<<<<<< HEAD
+
  -- create database myqueueo_db_main;
-=======
+
 -- create database myqueueo_db_main;
->>>>>>> f339d8b755ded86dad2c4d0b64565c21ca0113cc
 use myqueueo_db_main;
 
 -- create table tbl_asset
@@ -124,8 +123,6 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 INSERT INTO `tbl_user` (`username`, `password`, `name`, `date_registered`) VALUES
 ('raf', '1', 'raf', '2016-06-12 11:07:09'),
 ('yie', '1', 'yie', '2016-06-12 11:07:23'),
-<<<<<<< HEAD
 ('engineer3', '1', 'Engineer3', '2016-06-12 11:07:39');
-=======
+
 ('engineer3', '1', 'Engineer3', '2016-06-12 11:07:39');
->>>>>>> f339d8b755ded86dad2c4d0b64565c21ca0113cc
