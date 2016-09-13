@@ -1,0 +1,37 @@
+<html>
+<head>	
+	<title>Main Page</title>
+	<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+
+<body>
+	<div class="login-page">
+	  	<div class="form">
+	  		<img src="logo.png">
+	  		<br>
+	  		<p><p><p><p>
+	  		<h1>Inventory System</h1>
+	  		<p><p><p><p>
+	  	
+			<form method="post" action="authenticate_login.php">
+				<label>Username : </label>
+				<input type="text" name="username" id="username" value="" />
+				<p>
+				<label >Password :</label>
+				<input type="password" name="password" id="password" value="" />
+				<p>
+				<button>Login</button>
+			</form>
+			
+			<form class="login-form" action="view_stock.php">
+				<button>View Assets</button>
+			</form>
+			
+			
+			<form class="login-form" action="view_nutanix_specs.php">
+				<button>View Nutanix Specs</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

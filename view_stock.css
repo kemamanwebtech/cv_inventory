@@ -1,0 +1,104 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+
+.header{
+	width: 100%;
+	height: 180px;
+	background-color: #ffffff;
+	font: bold 25px "roboto", Verdana;
+	text-align: center;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+fieldset { 
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font: 15px "Trebuchet MS", Verdana, Arial, Helvetica,sans-serif;
+	color: ##ffffff;;
+	background-color: #cccccc;
+}
+
+.button {
+  font: 15px "Trebuchet MS", Verdana, Arial, Helvetica,sans-serif;
+  outline: 0;
+  background: #21466c; /* #4CAF50; */
+  width: 160px;
+  border: 0;
+  padding: 5px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.button:hover, .button:active, .button:focus {
+  background: #43A047;
+  /* #43A047; #415e9b */
+
+}
+
+
+
+.table {
+	min-width: 100%;
+	font: bold 15px "Roboto", sans-serif;
+	color: #6D929B;
+	text-align: center;
+	padding: 6px 6px 6px 12px;
+	border-right: 1px solid #C1DAD7;
+	border-left: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+}
+
+h1 {
+  padding: 5px;
+  font-size:1em; 
+  text-align: center;
+  color: #ffffff;
+}
+
+h2 {
+  padding: 1px;
+  font-size:1em; 
+  text-align: center;
+  color: #21466c;
+}
+
+.page_title {
+  padding: 1px;
+  font-size:1.5em; 
+  text-align: center;
+  color: #000000;
+}
+
+
+body {
+  background: #415e9b; /* 415e9b 76b852 #8DC26F fallback for old browsers */
+  background: -webkit-linear-gradient(right, #415e9b, #4e6f93);
+  background: -moz-linear-gradient(right, #415e9b, #4e6f93);
+  background: -o-linear-gradient(right, #415e9b, #4e6f93);
+  background: linear-gradient(to left, #415e9b, #4e6f93);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #21466c; /* #4CAF50; */
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  max-width: 200px;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}s
