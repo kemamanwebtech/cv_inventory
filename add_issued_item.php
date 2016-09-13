@@ -3,6 +3,7 @@
 include_once("config.php");
 
 //fetching data in descending order (lastest entry first)
+<<<<<<< HEAD
 // $result_product_name = mysqli_query($conn, "SELECT distinct product_name FROM tbl_product");
 // $result_user = mysqli_query($conn, "SELECT distinct name FROM tbl_user");
 // $result_status = mysqli_query($conn, "SELECT * FROM tbl_status");
@@ -12,6 +13,11 @@ $query_user = "SELECT distinct name FROM tbl_product";
 
 $result_product_name = $conn->query($query_product_name);
 $result_user = $conn->query($query_user);
+=======
+$result_product_name = mysqli_query($conn, "SELECT distinct product_name FROM tbl_product");
+$result_user = mysqli_query($conn, "SELECT distinct name FROM tbl_user");
+$result_status = mysqli_query($conn, "SELECT * FROM tbl_status");
+>>>>>>> f339d8b755ded86dad2c4d0b64565c21ca0113cc
 ?>
 
 
@@ -44,6 +50,7 @@ $result_user = $conn->query($query_user);
 			<p>Product Name : 
 				<select id="product_name" name="product_name">  
 				<?php
+<<<<<<< HEAD
 					//  if ($result_product_name->num_rows > 0) {
 					// 	while($row = $result_product_name->fetch_assoc()) {
 					// 		echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
@@ -56,6 +63,13 @@ $result_user = $conn->query($query_user);
 							echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
 						}
 					}
+=======
+					 if ($result_product_name->num_rows > 0) {
+						while($row = $result_product_name->fetch_assoc()) {
+							echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
+						}
+					}   
+>>>>>>> f339d8b755ded86dad2c4d0b64565c21ca0113cc
 				?>
 				</select>
 			</p>
