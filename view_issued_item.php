@@ -6,9 +6,9 @@ include_once("config.php");
 session_start();
 //echo "Logged in user : " . $_SESSION["logged_in_user"] ."<p><p>";
 
-
-//fetching data in descending order (lastest entry first)
-$result = mysqli_query($conn, "SELECT * FROM tbl_issued ORDER BY issued_date DESC LIMIT 50");
+//fetching data in descending order (lastest entry first). Use pdo instead of mysqli
+$query_tbl_issued="SELECT * FROM tbl_issued ORDER BY issued_date DESC lIMIT 50";
+$result = $conn->query($query_tbl_issued);
 
 ?>
 
@@ -62,10 +62,9 @@ $result = mysqli_query($conn, "SELECT * FROM tbl_issued ORDER BY issued_date DES
 
 		//echo "run php";
 
-		if ($result->num_rows > 0) {
-			//echo "have result";
-
-			while($row = $result->fetch_assoc()) {
+		if ($row = $result->fetch(PDO::FETCH_ASSOC)) 
+		{
+			while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 				echo "<tr bgcolor='#CCCCCC' border=0>";
 	        	echo "<td><h2>".$row['product_name']."</h2></td>";
 	        	echo "<td><h2>".$row['serial_no']."</h2></td>";
@@ -78,9 +77,11 @@ $result = mysqli_query($conn, "SELECT * FROM tbl_issued ORDER BY issued_date DES
 	        	echo "<td><h2>".$row['remarks']."</h2></td>";
 				echo "<td><h2>".$row['last_modified_by']."</h2></td>"."<tr>";
 	    	}
-		}	
+		}
 
-		$conn->close();
+		//close used resources
+		$result->closeCursor();
+		$db = null;
 	?>
 
 	</table>

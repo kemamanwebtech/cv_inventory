@@ -1,7 +1,7 @@
 -- Run this file in MySQL with root to create database and tables
 
 -- create database and use it
-create database myqueueo_db_main;
+-- create database myqueueo_db_main;
 use myqueueo_db_main;
 
 -- create table tbl_asset

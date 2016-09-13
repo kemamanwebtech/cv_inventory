@@ -7,8 +7,8 @@ $conn = mysqli_connect('localhost', 'root', '', 'myqueueo_db_asset_yie')
 */
 
 $dsn = 'mysql:dbname=myqueueo_db_main;host=localhost';
-$user='myqueueo_anak';
-$password='}Lr+kUQvla{m';
+$user='root';
+$password='Enter123';
 
 try 
 {	
