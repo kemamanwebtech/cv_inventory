@@ -8,11 +8,10 @@ include_once("config.php");
 // $result_status = mysqli_query($conn, "SELECT * FROM tbl_status");
 
 $query_product_name = "SELECT distinct product_name FROM tbl_product";
-$query_user = "SELECT distinct name FROM tbl_product";
+$query_user = "SELECT distinct name FROM tbl_user";
 
 $result_product_name = $conn->query($query_product_name);
 $result_user = $conn->query($query_user);
-=======
 $result_product_name = mysqli_query($conn, "SELECT distinct product_name FROM tbl_product");
 $result_user = mysqli_query($conn, "SELECT distinct name FROM tbl_user");
 $result_status = mysqli_query($conn, "SELECT * FROM tbl_status");
@@ -48,24 +47,21 @@ $result_status = mysqli_query($conn, "SELECT * FROM tbl_status");
 			<p>Product Name : 
 				<select id="product_name" name="product_name">  
 				<?php
-					//  if ($result_product_name->num_rows > 0) {
-					// 	while($row = $result_product_name->fetch_assoc()) {
+					 if ($result_product_name->num_rows > 0) {
+					 	while($row = $result_product_name->fetch_assoc()) {
+						echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
+					 	}
+					 }
+
+					//  if ($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) {
+
+						
+					// 	while($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) {
 					// 		echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
 					// 	}
-					// }   
+					// }
 
-					if ($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) {
-						while($row = $result_product_name->fetch(PDO::FETCH_ASSOC)){
 
-							echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
-						}
-					}
-
-					 if ($result_product_name->num_rows > 0) {
-						while($row = $result_product_name->fetch_assoc()) {
-							echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
-						}
-					}   
 				?>
 				</select>
 			</p>
