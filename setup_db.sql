@@ -123,6 +123,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 INSERT INTO `tbl_user` (`username`, `password`, `name`, `date_registered`) VALUES
 ('raf', '1', 'raf', '2016-06-12 11:07:09'),
 ('yie', '1', 'yie', '2016-06-12 11:07:23'),
+
 ('engineer3', '1', 'Engineer3', '2016-06-12 11:07:39');
 
 ('engineer3', '1', 'Engineer3', '2016-06-12 11:07:39');

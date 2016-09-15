@@ -2,9 +2,13 @@
 //include the database connection file
 include_once("config.php");
 
-//fetching data in descending order (lastest entry first)
-$result_product_name = mysqli_query($conn, "SELECT distinct product_name FROM tbl_product");
-$result_user = mysqli_query($conn, "SELECT distinct name FROM tbl_user");
+//queries
+$query_product_name = "SELECT distinct product_name FROM tbl_asset";
+$query_user = "SELECT distinct name FROM tbl_user";
+
+//run queries to get results
+$result_product_name = $conn->query($query_product_name);
+$result_user = $conn->query($query_user);
 
 ?>
 
@@ -39,11 +43,13 @@ $result_user = mysqli_query($conn, "SELECT distinct name FROM tbl_user");
 			<p>Product Name : 
 				<select id="product_name" name="product_name">  
 				<?php
-					 if ($result_product_name->num_rows > 0) {
-						while($row = $result_product_name->fetch_assoc()) {
+					if ($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) 
+					{
+						while($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) 
+						{
 							echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
 						}
-					}   
+					} 
 				?>
 				</select>
 			</p>
@@ -54,11 +60,13 @@ $result_user = mysqli_query($conn, "SELECT distinct name FROM tbl_user");
 		    <p>Registered_by : 
 				<select id="name" name="name">  
 				<?php
-					 if ($result_user->num_rows > 0) {
-						while($row = $result_user->fetch_assoc()) {
+					if ($row = $result_user->fetch(PDO::FETCH_ASSOC)) 
+					{
+						while($row = $result_user->fetch(PDO::FETCH_ASSOC)) 
+						{
 							echo '<option value="' . $row['name']. '">' . $row['name']. '</option>';
 						}
-					}   
+					}     
 				?>
 				</select>
 			<p>Date Registered (m/d/y) : <input type="text" id="datepicker" name="date"></p>

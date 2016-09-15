@@ -1,20 +1,13 @@
 <?php
 //include the database connection file
 include_once("config.php");
-
-//fetching data in descending order (lastest entry first)
-// $result_product_name = mysqli_query($conn, "SELECT distinct product_name FROM tbl_product");
-// $result_user = mysqli_query($conn, "SELECT distinct name FROM tbl_user");
-// $result_status = mysqli_query($conn, "SELECT * FROM tbl_status");
-
-$query_product_name = "SELECT distinct product_name FROM tbl_product";
+//queries
+$query_product_name = "SELECT distinct product_name FROM tbl_asset";
 $query_user = "SELECT distinct name FROM tbl_user";
 
+//run queries to get results
 $result_product_name = $conn->query($query_product_name);
 $result_user = $conn->query($query_user);
-$result_product_name = mysqli_query($conn, "SELECT distinct product_name FROM tbl_product");
-$result_user = mysqli_query($conn, "SELECT distinct name FROM tbl_user");
-$result_status = mysqli_query($conn, "SELECT * FROM tbl_status");
 ?>
 
 
@@ -47,23 +40,23 @@ $result_status = mysqli_query($conn, "SELECT * FROM tbl_status");
 			<p>Product Name : 
 				<select id="product_name" name="product_name">  
 				<?php
-					 if ($result_product_name->num_rows > 0) {
-					 	while($row = $result_product_name->fetch_assoc()) {
-						echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
-					 	}
-					 }
+					 // if ($result_product_name->num_rows > 0) {
+					 // 	while($row = $result_product_name->fetch_assoc()) {
+						// echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
+					 // 	}
+					 // }
 
-					//  if ($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) {
-
-						
-					// 	while($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) {
-					// 		echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
-					// 	}
-					// }
+					if ($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) 
+					{
+						while($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) 
+						{
+							echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
+						}
+					}   
 
 
 				?>
-				</select>
+					</select>
 			</p>
 			<p>Product Model : <input type="text" name="product_desc" /></p>
 			<p>Quantity : <input type="text" name="quantity" /></p>
@@ -74,9 +67,17 @@ $result_status = mysqli_query($conn, "SELECT * FROM tbl_status");
 			<p>Remarks : 
 				<select id="remarks" name="remarks">  
 				<?php
-					 if ($result_status->num_rows > 0) {
-						while($row = $result_status->fetch_assoc()) {
-							echo '<option value="' . $row['job_status']. '">' . $row['job_status']. '</option>';
+					//  if ($result_status->num_rows > 0) {
+					// 	while($row = $result_status->fetch_assoc()) {
+							// echo '<option value="' . $row['job_status']. '">' . $row['job_status']. '</option>';
+					// 	}
+					// } 
+
+					if ($row = $result_user->fetch(PDO::FETCH_ASSOC)) 
+					{
+						while($row = $result_user->fetch(PDO::FETCH_ASSOC)) 
+						{
+							echo '<option value="' . $row['name']. '">' . $row['name']. '</option>';
 						}
 					}   
 				?>
