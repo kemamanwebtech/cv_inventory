@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+
+.header{
+	width: 100%;
+	height: 180px;
+	background-color: #ffffff;
+	font: bold 25px "roboto", Verdana;
+	text-align: center;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+fieldset { 
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font: 15px "roboto", Verdana;
+	color: ##ffffff;;
+	background-color: #cccccc;
+}
+
+.add_form {
+	min-width: 100%;
+	font: bold 15px "Roboto", sans-serif;
+	color: #6D929B;
+	text-align: center;
+	padding: 6px 6px 6px 12px;
+}
+
+h1 {
+  padding: 5px;
+  font-size:1em; 
+  text-align: center;
+  color: #ffffff;
+}
+
+h2 {
+  padding: 1px;
+  font-size:1em; 
+  text-align: center;
+  color: #21466c;
+}
+
+.page_title {
+  padding: 1px;
+  font-size:1.5em; 
+  text-align: center;
+  color: #000000;
+}
+
+
+body {
+  background: #415e9b; /* 415e9b 76b852 #8DC26F fallback for old browsers */
+  background: -webkit-linear-gradient(right, #415e9b, #4e6f93);
+  background: -moz-linear-gradient(right, #415e9b, #4e6f93);
+  background: -o-linear-gradient(right, #415e9b, #4e6f93);
+  background: linear-gradient(to left, #415e9b, #4e6f93);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+.box_container {
+	margin-left: 20%; 
+	text-align: right;
+	float: left;
+	width: 600px;
+	color: #ffffff;
+}
+	
+	
+.add_form button {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #21466c; /* #4CAF50; */
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  max-width: 200px;
+}
+.add_form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+
+.form button {
+  float: left;
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #21466c; /* #4CAF50; */
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  max-width: 200px;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+
+input, select, text, input[type="text"]{
+     width:40%;
+     box-sizing:border-box;
+}
+
