@@ -1,18 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-/*.jumbotron {
-
-  height: 180px;
-  background-color: #ffffff;
-  font: bold 25px "roboto", Verdana;
-  text-align: center;
-  padding-bottom: 10px;
-  padding-top: 10px;
-
-}*/
 
 .header{
-  width: 100%;
+	width: 100%;
 	height: 180px;
 	background-color: #ffffff;
 	font: bold 25px "roboto", Verdana;
@@ -22,19 +12,44 @@
 }
 
 fieldset { 
-	margin-top: 5px;
+	margin-top: 10px;
 	margin-bottom: 5px;
-	font: 15px "roboto", Verdana;
+	font: 15px "Trebuchet MS", Verdana, Arial, Helvetica,sans-serif;
 	color: ##ffffff;;
 	background-color: #cccccc;
 }
 
-.add_form {
+.button {
+  font: 15px "Trebuchet MS", Verdana, Arial, Helvetica,sans-serif;
+  outline: 0;
+  background: #21466c; /* #4CAF50; */
+  width: 160px;
+  border: 0;
+  padding: 5px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.button:hover, .button:active, .button:focus {
+  background: #43A047;
+  /* #43A047; #415e9b */
+
+}
+
+
+
+.table {
 	min-width: 100%;
 	font: bold 15px "Roboto", sans-serif;
 	color: #6D929B;
 	text-align: center;
 	padding: 6px 6px 6px 12px;
+	border-right: 1px solid #C1DAD7;
+	border-left: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
 }
 
 h1 {
@@ -70,35 +85,7 @@ body {
   -moz-osx-font-smoothing: grayscale;      
 }
 
-.box_container {
-	margin-left: 20%; 
-	text-align: right;
-	float: left;
-	width: 600px;
-	color: #ffffff;
-}
-	
-	
-.add_form button {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #21466c; /* #4CAF50; */
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-  max-width: 200px;
-}
-.add_form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
-}
-
 .form button {
-  float: left;
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #21466c; /* #4CAF50; */
@@ -114,10 +101,4 @@ body {
 }
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
-}
-
-input, select, text, input[type="text"]{
-     width:40%;
-     box-sizing:border-box;
-}
-
+}s

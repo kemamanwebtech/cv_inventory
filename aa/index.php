@@ -35,65 +35,67 @@ $result_user = $conn->query($query_user);
 </div>
 
 <ul class="tab">
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'Add Received Item')">Add Received Item</a></li>
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'Add Issued Item')">Add Issued Item</a></li>
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'Add New Asset')">Add New Asset</a></li>
+  <li><a href="#" class="tablinks" onclick="openCity(event, 'Received Item')">Received Item</a></li>
+  <li><a href="#" class="tablinks" onclick="openCity(event, 'Issued Item')"> Issued Item</a></li>
+  <li><a href="#" class="tablinks" onclick="openCity(event, 'New Asset')"> New Asset</a></li>
 </ul>
 
-<div id="Add Received Item" class="tabcontent">
-  <form class="add_form" method="post" action="save_received_item.php">
-    <div class="box_container">
-            <p>Serial No. : <input type="text" name="serial_no" /></p>
-        <p>Product Name: 
-          <select id="product_name" name="product_name">  
-          <?php
-          if ($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) 
-          {
-            while($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) 
-            {
-              echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
-            }
-          }   
-        ?>
-          </select>
-        </p>
-        <p>Product Model : <input type="text" name="product_desc" /></p>
-        <p>Quantity : <input type="text" name="quantity" /></p>
-        <p>Received from : <input type="text" name="received_from" /></p>
-        <p>Received date (m/d/y) : <input type="text" id="datepicker" name="received_date"></p>
-        <p>Remarks : <input type="text" name="remarks" /></p>
-        <p>Item Owner : 
-        <select id="item_owner" name="item_owner">  
-        <?php
-          if ($row = $result_user->fetch(PDO::FETCH_ASSOC)) 
-          {
-            while($row = $result_user->fetch(PDO::FETCH_ASSOC)) 
-            {
-              echo '<option value="' . $row['name']. '">' . $row['name']. '</option>';
-            }
-          }   
-        ?>
-        </select>
-        </p>
-        <button>Add</button>
-        <p><p>
-    </div>
-    
-  </form>
+<div id="Received Item" class="tabcontent">
+  <ul class="tab">
+  <li><a href="#" class="tablinks" onclick="openCity(event, 'View')">View</a></li>
+  <li><a href="#" class="tablinks" onclick="openCity(event, 'Add')">Add </a></li>
+</ul>
+<div id="View" class="tabcontent">
+  <table width='100%' class="table">
+
+  <!-- table header -->
+  <tr bgcolor='#21466c' border=0>
+    <td><h1>Product Name</h1></td>
+    <td><h1>Serial No.</h1></td>
+    <td><h1>Product Model</h1></td>
+    <td><h1>Qty</h1></td>
+    <td><h1>Received From</h1></td>
+    <td><h1>Received Date</h1></td>
+    <td><h1>Remarks</h1></td>
+    <td><h1>Owner</h1></td>
+    <td><h1>Last Modified By</h1></td>
+  </tr>
+
+  <?php 
+
+    if ($row = $result->fetch(PDO::FETCH_ASSOC)) 
+    {
+      while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr bgcolor='#CCCCCC' border=0>";
+            echo "<td><h2>".$row['product_name']."</h2></td>";
+            echo "<td><h2>".$row['serial_no']."</h2></td>";
+            echo "<td><h2>".$row['product_desc']."</h2></td>";
+            echo "<td><h2>".$row['quantity']."</h2></td>";
+            echo "<td><h2>".$row['received_from']."</h2></td>";
+            echo "<td><h2>".$row['received_date']."</h2></td>";
+            echo "<td><h2>".$row['remarks']."</h2></td>";
+            echo "<td><h2>".$row['item_owner']."</h2></td>";
+        echo "<td><h2>".$row['last_modified_by']."</h2></td>"."<tr>";
+        }
+    } 
+
+    //close used resources
+    $result->closeCursor();
+    $db = null;
+
+  ?>
+
+  </table>
+
 </div>
 
-<div id="Add Issued Item" class="tabcontent">
+<div id="Issued Item" class="tabcontent">
   <form class="add_form" method="post" action="save_issued_item.php">
   <div class="box_container">
           <p>Serial No. : <input type="text" name="serial_no" /></p>
       <p>Product Name : 
         <select id="product_name" name="product_name">  
         <?php
-           // if ($result_product_name->num_rows > 0) {
-           //   while($row = $result_product_name->fetch_assoc()) {
-            // echo '<option value="' . $row['product_name']. '">' . $row['product_name']. '</option>';
-           //   }
-           // }
 
           if ($row = $result_product_name->fetch(PDO::FETCH_ASSOC)) 
           {
@@ -116,11 +118,6 @@ $result_user = $conn->query($query_user);
       <p>Remarks : 
         <select id="remarks" name="remarks">  
         <?php
-          //  if ($result_status->num_rows > 0) {
-          //  while($row = $result_status->fetch_assoc()) {
-              // echo '<option value="' . $row['job_status']. '">' . $row['job_status']. '</option>';
-          //  }
-          // } 
 
           if ($row = $result_user->fetch(PDO::FETCH_ASSOC)) 
           {
@@ -138,8 +135,9 @@ $result_user = $conn->query($query_user);
   </div>
 </form>
 </div>
+</div>
 
-<div id="Add New Asset" class="tabcontent">
+<div id="New Asset" class="tabcontent">
   <form class="add_form" method="post" action="save_new_asset.php">
   <div class="box_container">
       <p>Product Name : 
